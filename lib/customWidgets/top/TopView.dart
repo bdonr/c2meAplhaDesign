@@ -1,3 +1,4 @@
+import 'package:c2mealpha2/imageButton/GlasButton.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -16,13 +17,13 @@ class _TopViewState extends State<TopView> {
   Widget build(BuildContext context) {
     return SliverAppBar(
       pinned: true,
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.transparent,
       leading: Row(
         children: [
           const Padding(padding: EdgeInsets.only(left: 5)),
           Container(
             height: 40,
-            child: TopButtonDesign(
+            child: GlasButton(
               callback: () => {widget.scaffoldKey.currentState?.openDrawer()},
               icon: FontAwesomeIcons.bars,
             ),
@@ -34,13 +35,13 @@ class _TopViewState extends State<TopView> {
           height: 20,
           child: Row(
             children: [
-              TopButtonDesign(
+              GlasButton(
                   callback: () => {}, icon: FontAwesomeIcons.heart),
               const Padding(padding: EdgeInsets.only(left: 20)),
-              TopButtonDesign(
+              GlasButton(
                   callback: () => {}, icon: FontAwesomeIcons.bell),
               const Padding(padding: EdgeInsets.only(left: 20)),
-              TopButtonDesign(
+              GlasButton(
                   callback: () => {}, icon: FontAwesomeIcons.message),
               const Padding(padding: EdgeInsets.only(right: 5)),
             ],

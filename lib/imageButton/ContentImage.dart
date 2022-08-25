@@ -1,10 +1,12 @@
+import 'package:c2mealpha2/customWidgets/GlasContainer.dart';
 import 'package:c2mealpha2/customWidgets/ShadowBox.dart';
+import 'package:c2mealpha2/imageButton/GlasButton.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-import 'DescriptionRow.dart';
-import 'customWidgets/top/TopButtonDesign.dart';
+import '../customWidgets/DescriptionRow.dart';
+import '../customWidgets/top/TopButtonDesign.dart';
 
 class ContentImage extends StatefulWidget {
   const ContentImage({Key? key}) : super(key: key);
@@ -30,28 +32,26 @@ class _ContentImageState extends State<ContentImage> {
           Positioned(
             top: 250,
             left: 4,
-            child: TopButtonDesign(
+            child: GlasButton(
                 callback: () => {}, icon: FontAwesomeIcons.heart),
           ),
           Positioned(
             top: 250,
             left: 70,
-            child: TopButtonDesign(
+            child: GlasButton(
                 callback: () => {}, icon: FontAwesomeIcons.pencil),
           ),
           Positioned(
-            top: 250,
-            left: 150,
-            child: ShadowBox(
-              height: 70,
-              width: 250,
-              color: Colors.transparent,
-              shadowColor: Colors.deepPurple.shade100,
-              child: Row(children: [
-                Expanded(child: DescriptionTextRow(description: 1000.toString(),text:"follower")),
-                Padding(padding: EdgeInsets.only(left: 10)),
-                Expanded(child: DescriptionTextRow(description: "follows",text:1000.toString())),
-                Expanded(child: DescriptionTextRow(description: "stories", text:4.toString())),
+            top: 240,
+            left: 130,
+            child: GlasContainer(
+              height: 90,
+              width: 300,
+              boxShadow: Colors.transparent,
+              child: Stack(children: [
+                Positioned.fill(left:4,top:-60,child: DescriptionTextRow(description: 1000.toString(),text:"follower")),
+                Positioned.fill(left:4,top:-30,child: DescriptionTextRow(description:1000.toString(),text: "follows",)),
+                Positioned.fill(left:4,top:-0,child: DescriptionTextRow(description:4.toString(),text: "stories",)),
               ],),
             ),
           )

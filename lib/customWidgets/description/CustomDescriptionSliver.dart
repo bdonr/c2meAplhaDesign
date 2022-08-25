@@ -1,7 +1,8 @@
+import 'package:c2mealpha2/customWidgets/GlasContainer.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import '../../DescriptionRow.dart';
+import '../DescriptionRow.dart';
 
 class CustomDescriptionSliver extends StatefulWidget {
   const CustomDescriptionSliver({Key? key}) : super(key: key);
@@ -14,16 +15,18 @@ class _CustomDescriptionSliverState extends State<CustomDescriptionSliver> {
   @override
   Widget build(BuildContext context) {
     return SliverToBoxAdapter(
-      child: Container(
+      child: GlasContainer(
         height: 150,
-        color: Colors.transparent,
+        width: double.infinity,
+        boxShadow: Colors.deepPurple,
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-
-
             Padding(padding: EdgeInsets.only(top: 30)),
             Row(
               children: const [
+
                 Expanded(
                   child: DescriptionTextRow(
                     description: "single",

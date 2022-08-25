@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 
 import 'CustomText.dart';
 
+
 class DescriptionTextRow extends StatelessWidget {
   const DescriptionTextRow(
       {Key? key, required this.description, required this.text})
@@ -10,10 +11,13 @@ class DescriptionTextRow extends StatelessWidget {
   final String text;
 
   Widget build(BuildContext context) {
-    return Row(children: [
-      CustomText(text: description+":"),
-      const Padding(padding: EdgeInsets.only(left: 6)),
-      Expanded(child: CustomText(text: text)),
+    return Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+
+        children:[
+
+      Flexible(flex:3,child: CustomText(text: description+":")),
+      Flexible(flex:7,child: CustomText(text: text)),
     ]);
   }
 }
