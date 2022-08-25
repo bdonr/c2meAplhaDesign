@@ -2,11 +2,13 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class GlasContainer extends StatefulWidget {
-  const GlasContainer({Key? key,required this.child,required this.height,required this.width,required this.boxShadow}) : super(key: key);
+  const GlasContainer({Key? key,required this.child,required this.height,required this.width,required this.boxShadow,this.blur=10,this.spread=1}) : super(key: key);
   final Widget child;
   final double height;
   final double width;
   final Color boxShadow;
+  final double? blur;
+  final double? spread;
   @override
   State<GlasContainer> createState() => _GlasContainerState();
 }
@@ -23,8 +25,8 @@ class _GlasContainerState extends State<GlasContainer> {
           boxShadow: [
             BoxShadow(
               color: widget.boxShadow.withAlpha(100),
-              blurRadius: 10,
-              spreadRadius: 1,
+              blurRadius: widget.blur!,
+              spreadRadius: widget.spread!,
             )
           ],
         color: Colors.white.withOpacity(0.1),

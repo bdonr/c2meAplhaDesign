@@ -1,3 +1,4 @@
+import 'package:c2mealpha2/customWidgets/GlasContainer.dart';
 import 'package:c2mealpha2/imageButton/ContentImage.dart';
 import 'package:c2mealpha2/customWidgets/DescriptionRow.dart';
 import 'package:c2mealpha2/customWidgets/description/CustomDescriptionSliver.dart';
@@ -8,12 +9,105 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 void main() {
-  runApp(MyApp());
+  List<Widget> list = [];
+
+  list.add(GlasContainer(
+      height: 100,
+      width: 100,
+      spread: 0,
+      blur: 0,
+      child: Text(
+        "youtube",
+        style: TextStyle(
+            color: Colors.black87, fontSize: 13, fontWeight: FontWeight.bold),
+      ),
+      boxShadow: Colors.red));
+  list.add(GlasContainer(
+      height: 100,
+      width: 100,
+      spread: 0,
+      blur: 0,
+      child: Text(
+        "tiktok",
+        style: TextStyle(
+            color: Colors.white, fontSize: 13, fontWeight: FontWeight.bold),
+      ),
+      boxShadow: Colors.black87));
+  list.add(GlasContainer(
+      height: 100,
+      width: 100,
+      spread: 0,
+      blur: 0,
+      child: Text(
+        "twitter",
+        style: TextStyle(
+            color: Colors.white, fontSize: 13, fontWeight: FontWeight.bold),
+      ),
+      boxShadow: Colors.blue));
+  list.add(GlasContainer(
+      height: 100,
+      width: 100,
+      spread: 0,
+      blur: 0,
+      child: Text(
+        "twitch",
+        style: TextStyle(
+            color: Colors.white, fontSize: 13, fontWeight: FontWeight.bold),
+      ),
+      boxShadow: Colors.deepPurple));
+  list.add(GlasContainer(
+      height: 100,
+      width: 100,
+      spread: 0,
+      blur: 0,
+      child: Text(
+        "pinterest",
+        style: TextStyle(
+            color: Colors.white, fontSize: 13, fontWeight: FontWeight.bold),
+      ),
+      boxShadow: Colors.orange));
+  list.add(GlasContainer(
+      height: 100,
+      width: 100,
+      spread: 0,
+      blur: 0,
+      child: Text(
+        "snapchat",
+        style: TextStyle(
+            color: Colors.black87, fontSize: 13, fontWeight: FontWeight.bold),
+      ),
+      boxShadow: Colors.yellowAccent));
+  list.add(GlasContainer(
+      height: 100,
+      width: 100,
+      spread: 0,
+      blur: 0,
+      child: Text(
+        "instagram",
+        style: TextStyle(
+            color: Colors.white, fontSize: 13, fontWeight: FontWeight.bold),
+      ),
+      boxShadow: Colors.pink));
+  list.add(GlasContainer(
+      height: 100,
+      width: 100,
+      spread: 0,
+      blur: 0,
+      child: Text(
+        "onlyfans",
+        style: TextStyle(
+            color: Colors.white, fontSize: 13, fontWeight: FontWeight.bold),
+      ),
+      boxShadow: Colors.deepOrange));
+
+  runApp(MyApp(
+    list: list,
+  ));
 }
 
 class MyApp extends StatelessWidget {
-  MyApp({Key? key}) : super(key: key);
-
+  MyApp({Key? key, required this.list}) : super(key: key);
+  final List<Widget> list;
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
 
   // This widget is the root of your application.
@@ -42,16 +136,12 @@ class MyApp extends StatelessWidget {
                 child: SizedBox(
                   height: 100,
                   child: ListView.builder(
-                    itemCount: 100,
+                    shrinkWrap: true,
+                    itemCount: list.length,
                     itemBuilder: (context, index) {
-                      return Row(
-                        children: [
-                          Padding(padding: EdgeInsets.only(left: 1)),
-                          Container(
-                              height: 100,
-                              width: 100,
-                              color: Colors.deepPurple[100 * (index % 9)]),
-                        ],
+                      return Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: list[index],
                       );
                     },
                     scrollDirection: Axis.horizontal,
@@ -61,7 +151,7 @@ class MyApp extends StatelessWidget {
               SliverToBoxAdapter(
                 child: Container(
                   height: 200,
-                  color: Colors.red,
+                  color: Colors.transparent,
                 ),
               ),
               SliverToBoxAdapter(
