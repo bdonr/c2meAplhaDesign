@@ -20,10 +20,7 @@ class _CustomDescriptionSliverState extends State<CustomDescriptionSliver> {
         child: Column(
           children: [
 
-            Row(children: [
-              Expanded(child: DescriptionTextRow(description: "follower", text:1000.toString())),
-              Expanded(child: DescriptionTextRow(description: "stories", text:4.toString())),
-            ],),
+
             Padding(padding: EdgeInsets.only(top: 30)),
             Row(
               children: const [

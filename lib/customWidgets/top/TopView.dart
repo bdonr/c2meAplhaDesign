@@ -5,8 +5,8 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'TopButtonDesign.dart';
 
 class TopView extends StatefulWidget {
-  const TopView({Key? key}) : super(key: key);
-
+  const TopView({Key? key,required this.scaffoldKey}) : super(key: key);
+  final GlobalKey<ScaffoldState> scaffoldKey;
   @override
   State<TopView> createState() => _TopViewState();
 }
@@ -19,11 +19,11 @@ class _TopViewState extends State<TopView> {
       backgroundColor: Colors.white,
       leading: Row(
         children: [
-          Padding(padding: EdgeInsets.only(left: 5)),
+          const Padding(padding: EdgeInsets.only(left: 5)),
           Container(
             height: 40,
             child: TopButtonDesign(
-              callback: () => {},
+              callback: () => {widget.scaffoldKey.currentState?.openDrawer()},
               icon: FontAwesomeIcons.bars,
             ),
           ),
@@ -36,13 +36,13 @@ class _TopViewState extends State<TopView> {
             children: [
               TopButtonDesign(
                   callback: () => {}, icon: FontAwesomeIcons.heart),
-              Padding(padding: EdgeInsets.only(left: 20)),
+              const Padding(padding: EdgeInsets.only(left: 20)),
               TopButtonDesign(
                   callback: () => {}, icon: FontAwesomeIcons.bell),
-              Padding(padding: EdgeInsets.only(left: 20)),
+              const Padding(padding: EdgeInsets.only(left: 20)),
               TopButtonDesign(
                   callback: () => {}, icon: FontAwesomeIcons.message),
-              Padding(padding: EdgeInsets.only(right: 5)),
+              const Padding(padding: EdgeInsets.only(right: 5)),
             ],
           ),
         )

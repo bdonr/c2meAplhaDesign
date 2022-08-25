@@ -11,8 +11,8 @@ class DescriptionTextRow extends StatelessWidget {
 
   Widget build(BuildContext context) {
     return Row(children: [
-      CustomText(text: description),
-      const Padding(padding: EdgeInsets.only(left: 4)),
+      CustomText(text: description+":"),
+      const Padding(padding: EdgeInsets.only(left: 6)),
       Expanded(child: CustomText(text: text)),
     ]);
   }

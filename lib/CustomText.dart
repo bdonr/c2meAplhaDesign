@@ -7,9 +7,9 @@ class CustomText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Material(
-      child: Text(text,
+      child: Text(text,textDirection: TextDirection.ltr,
           style: TextStyle(
-              color: Colors.black54, fontSize: 12,fontWeight: FontWeight.w800)),
+              color: Colors.black54, fontSize: 13,fontWeight: FontWeight.w800,backgroundColor: Colors.transparent)),
     );
   }
 }

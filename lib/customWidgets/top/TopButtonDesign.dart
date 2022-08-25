@@ -1,3 +1,4 @@
+import 'package:c2mealpha2/customWidgets/ShadowBox.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -18,28 +19,14 @@ class _TopButtonDesignState extends State<TopButtonDesign> {
   Widget build(BuildContext context) {
     return SizedBox(
       height: 40,
-      child: Container(
+      child: ShadowBox(
           height: 50,
           width: 50,
-          decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(10),
-                topRight: Radius.circular(10),
-                bottomLeft: Radius.circular(10),
-                bottomRight: Radius.circular(10)),
-            boxShadow: [
-              BoxShadow(
-                color: Colors.deepPurple.withOpacity(0.5),
-                spreadRadius: 5,
-                blurRadius: 7,
-                offset: Offset(4, 3), // changes position of shadow
-              ),
-            ],
-          ),
+          shadowColor: Colors.deepPurple.shade200,
+          color: Colors.white,
           child: IconButton(
             onPressed: widget.callback,
-            icon: FaIcon(widget.icon),color: Colors.deepPurple,
+            icon: FaIcon(widget.icon),color: Colors.deepPurple,focusColor: Colors.deepPurple.shade400,
           )),
     );
   }

@@ -1,7 +1,9 @@
+import 'package:c2mealpha2/customWidgets/ShadowBox.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
+import 'DescriptionRow.dart';
 import 'customWidgets/top/TopButtonDesign.dart';
 
 class ContentImage extends StatefulWidget {
@@ -20,7 +22,7 @@ class _ContentImageState extends State<ContentImage> {
           Container(
             height: 300,
             width: double.infinity,
-            color: Colors.white,
+            color: Colors.transparent,
             child: Image.network(
                 "https://thumbs.dreamstime.com/b/beautiful-woman-whiten-perfect-smile-outdoor-green-background-33801042.jpg",
                 fit: BoxFit.fill),
@@ -37,6 +39,22 @@ class _ContentImageState extends State<ContentImage> {
             child: TopButtonDesign(
                 callback: () => {}, icon: FontAwesomeIcons.pencil),
           ),
+          Positioned(
+            top: 250,
+            left: 150,
+            child: ShadowBox(
+              height: 70,
+              width: 250,
+              color: Colors.transparent,
+              shadowColor: Colors.deepPurple.shade100,
+              child: Row(children: [
+                Expanded(child: DescriptionTextRow(description: 1000.toString(),text:"follower")),
+                Padding(padding: EdgeInsets.only(left: 10)),
+                Expanded(child: DescriptionTextRow(description: "follows",text:1000.toString())),
+                Expanded(child: DescriptionTextRow(description: "stories", text:4.toString())),
+              ],),
+            ),
+          )
         ],
       ),
     );
