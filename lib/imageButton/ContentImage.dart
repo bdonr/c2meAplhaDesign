@@ -49,9 +49,9 @@ class _ContentImageState extends State<ContentImage> {
               width: 300,
               boxShadow: Colors.transparent,
               child: Stack(children: [
-                Positioned.fill(left:4,top:-60,child: DescriptionTextRow(description: 1000.toString(),text:"follower")),
-                Positioned.fill(left:4,top:-30,child: DescriptionTextRow(description:1000.toString(),text: "follows",)),
-                Positioned.fill(left:4,top:-0,child: DescriptionTextRow(description:4.toString(),text: "stories",)),
+                Positioned.fill(left:4,top:-60,child: Align(alignment: Alignment.centerLeft,child: DescriptionTextRow(description: 1000.toString(),text:"follower"))),
+                Positioned.fill(left:4,top:-30,child:  Align(alignment: Alignment.centerLeft,child:DescriptionTextRow(description:1000.toString(),text: "follows",))),
+                Positioned.fill(left:4,top:-0,child:  Align(alignment: Alignment.centerLeft,child:DescriptionTextRow(description:4.toString(),text: "stories",))),
               ],),
             ),
           )

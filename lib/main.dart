@@ -16,10 +16,13 @@ void main() {
       width: 100,
       spread: 0,
       blur: 0,
-      child: Text(
-        "youtube",
-        style: TextStyle(
-            color: Colors.black87, fontSize: 13, fontWeight: FontWeight.bold),
+      child: Align(
+        alignment: Alignment.center,
+        child: Text(
+          "youtube",
+          style: TextStyle(
+              color: Colors.black87, fontSize: 13, fontWeight: FontWeight.bold),
+        ),
       ),
       boxShadow: Colors.red));
   list.add(GlasContainer(
@@ -27,77 +30,84 @@ void main() {
       width: 100,
       spread: 0,
       blur: 0,
-      child: Text(
+      child:  Align(
+          alignment: Alignment.center,child:Text(
         "tiktok",
         style: TextStyle(
             color: Colors.white, fontSize: 13, fontWeight: FontWeight.bold),
-      ),
+      )),
       boxShadow: Colors.black87));
   list.add(GlasContainer(
       height: 100,
       width: 100,
       spread: 0,
       blur: 0,
-      child: Text(
+      child:  Align(
+          alignment: Alignment.center,child:Text(
         "twitter",
         style: TextStyle(
             color: Colors.white, fontSize: 13, fontWeight: FontWeight.bold),
-      ),
+      )),
       boxShadow: Colors.blue));
   list.add(GlasContainer(
       height: 100,
       width: 100,
       spread: 0,
       blur: 0,
-      child: Text(
+      child: Align(
+          alignment: Alignment.center,child:Text(
         "twitch",
         style: TextStyle(
             color: Colors.white, fontSize: 13, fontWeight: FontWeight.bold),
-      ),
+      )),
       boxShadow: Colors.deepPurple));
   list.add(GlasContainer(
       height: 100,
       width: 100,
       spread: 0,
       blur: 0,
-      child: Text(
+      child:Align(
+          alignment: Alignment.center,child: Text(
         "pinterest",
         style: TextStyle(
             color: Colors.white, fontSize: 13, fontWeight: FontWeight.bold),
-      ),
+      )),
       boxShadow: Colors.orange));
   list.add(GlasContainer(
       height: 100,
       width: 100,
       spread: 0,
       blur: 0,
-      child: Text(
+      child: Align(
+          alignment: Alignment.center,child:Text(
         "snapchat",
         style: TextStyle(
             color: Colors.black87, fontSize: 13, fontWeight: FontWeight.bold),
-      ),
+      )),
       boxShadow: Colors.yellowAccent));
   list.add(GlasContainer(
       height: 100,
       width: 100,
       spread: 0,
       blur: 0,
-      child: Text(
+      child: Align(
+          alignment: Alignment.center,child:Text(
         "instagram",
         style: TextStyle(
             color: Colors.white, fontSize: 13, fontWeight: FontWeight.bold),
-      ),
+      )),
       boxShadow: Colors.pink));
   list.add(GlasContainer(
       height: 100,
       width: 100,
       spread: 0,
       blur: 0,
-      child: Text(
+      child: Align(
+          alignment: Alignment.center,child:Text(
         "onlyfans",
         style: TextStyle(
             color: Colors.white, fontSize: 13, fontWeight: FontWeight.bold),
-      ),
+      )),
       boxShadow: Colors.deepOrange));
 
   runApp(MyApp(
