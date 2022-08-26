@@ -1,4 +1,4 @@
-import 'package:c2mealpha2/customWidgets/LikeMessageOverlay.dart';
+import 'package:c2mealpha2/customWidgets/LikeMessageOverlayWithTitle.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -11,7 +11,8 @@ class StoryTile extends StatefulWidget {
       {Key? key,
       required this.imageUrl,
       required this.followerCount,
-      required this.messageCount,required this.title})
+      required this.messageCount,
+      required this.title})
       : super(key: key);
   final String imageUrl;
   final String followerCount;
@@ -25,26 +26,41 @@ class StoryTile extends StatefulWidget {
 class _StoryTileState extends State<StoryTile> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-        width: 300,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.all(Radius.circular(10)),
-          image: DecorationImage(
-              alignment: Alignment(-.2, 0),
-              image: NetworkImage(widget.imageUrl),
-              fit: BoxFit.cover),
-          color: Colors.white,
+    return Stack(
+      children: <Widget>[
+        Container(
+          decoration: BoxDecoration(
+            image: DecorationImage(
+                image: NetworkImage(widget.imageUrl), fit: BoxFit.fill),
+            borderRadius: const BorderRadius.all(Radius.circular(10)),
+          ),
+          height: 400,
+          width: 300,
         ),
-        child: Column(
-          children: [
-            Text(widget.title),
-            Expanded(
-              flex: 1,
-              child: LikeMessageOverlay(
-                  messageCount: widget.messageCount,
-                  followerCount: widget.followerCount,glassColor: Colors.black,),
+        Positioned.fill(
+          child: Material(
+            color: Colors.transparent,
+            child: InkWell(
+              onTap: () {},
             ),
-          ],
-        ));
+          ),
+        ),
+        Positioned.fill(
+          child: Column(
+            children: [
+              Expanded(
+                flex: 1,
+                child: LikeMessageOverlayWithTitle(
+                  title: widget.title,
+                  messageCount: widget.messageCount,
+                  followerCount: widget.followerCount,
+                  glassColor: Colors.black,
+                ),
+              ),
+            ],
+          ),
+        ),
+      ],
+    );
   }
 }
