@@ -11,11 +11,12 @@ class StoryTile extends StatefulWidget {
       {Key? key,
       required this.imageUrl,
       required this.followerCount,
-      required this.messageCount})
+      required this.messageCount,required this.title})
       : super(key: key);
   final String imageUrl;
   final String followerCount;
   final String messageCount;
+  final String title;
 
   @override
   State<StoryTile> createState() => _StoryTileState();
@@ -27,14 +28,23 @@ class _StoryTileState extends State<StoryTile> {
     return Container(
         width: 300,
         decoration: BoxDecoration(
+          borderRadius: BorderRadius.all(Radius.circular(10)),
           image: DecorationImage(
               alignment: Alignment(-.2, 0),
               image: NetworkImage(widget.imageUrl),
               fit: BoxFit.cover),
           color: Colors.white,
         ),
-        child: LikeMessageOverlay(
-            messageCount: widget.messageCount,
-            followerCount: widget.followerCount,glassColor: Colors.black,));
+        child: Column(
+          children: [
+            Text(widget.title),
+            Expanded(
+              flex: 1,
+              child: LikeMessageOverlay(
+                  messageCount: widget.messageCount,
+                  followerCount: widget.followerCount,glassColor: Colors.black,),
+            ),
+          ],
+        ));
   }
 }
