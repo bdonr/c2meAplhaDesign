@@ -13,12 +13,14 @@ class StoryTile extends StatefulWidget {
       this.imageUrl = null,
       required this.followerCount,
       required this.messageCount,
-      required this.title})
+      required this.title,
+      required this.callback})
       : super(key: key);
   final String? imageUrl;
   final String followerCount;
   final String messageCount;
   final String title;
+  final VoidCallback callback;
 
   @override
   State<StoryTile> createState() => _StoryTileState();
@@ -30,6 +32,7 @@ class _StoryTileState extends State<StoryTile> {
     return Stack(
       children: <Widget>[
         InkWellWidget(
+          callback: widget.callback,
           width: 300,
           height: 400,
           imageUrl: widget.imageUrl,
@@ -38,6 +41,8 @@ class _StoryTileState extends State<StoryTile> {
               Expanded(
                 flex: 2,
                 child: LikeMessageOverlayWithTitle(
+                  height: widget.imageUrl!=null?150:400,
+                  flex: widget.imageUrl!=null?1:1,
                   title: widget.title,
                   messageCount: widget.messageCount,
                   followerCount: widget.followerCount,

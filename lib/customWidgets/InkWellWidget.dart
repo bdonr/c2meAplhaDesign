@@ -2,11 +2,19 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class InkWellWidget extends StatefulWidget {
-  const InkWellWidget({Key? key, required this.width,required this.height, this.imageUrl = null,this.child=null}) : super(key: key);
+  const InkWellWidget(
+      {Key? key,
+      required this.width,
+      required this.height,
+      required this.callback,
+      this.imageUrl = null,
+      this.child = null})
+      : super(key: key);
   final String? imageUrl;
   final double width;
   final double height;
   final Widget? child;
+  final VoidCallback callback;
 
   @override
   State<InkWellWidget> createState() => _InkWellWidgetState();
@@ -19,7 +27,7 @@ class _InkWellWidgetState extends State<InkWellWidget> {
       Container(
         child: widget.child,
         decoration: BoxDecoration(
-          color: widget.imageUrl==null?Colors.white:null,
+          color: widget.imageUrl == null ? Colors.white : null,
           image: widget.imageUrl != null
               ? DecorationImage(
                   image: NetworkImage(widget.imageUrl!), fit: BoxFit.fill)
@@ -33,7 +41,7 @@ class _InkWellWidgetState extends State<InkWellWidget> {
           child: Material(
         color: Colors.transparent,
         child: InkWell(
-          onTap: () {},
+          onTap: widget.callback,
         ),
       )),
     ]);
