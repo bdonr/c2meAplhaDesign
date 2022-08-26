@@ -1,16 +1,19 @@
+import 'package:c2mealpha2/customWidgets/CustomText.dart';
 import 'package:c2mealpha2/customWidgets/GlasContainer.dart';
+import 'package:c2mealpha2/customWidgets/StoryTile.dart';
 import 'package:c2mealpha2/imageButton/ContentImage.dart';
 import 'package:c2mealpha2/customWidgets/DescriptionRow.dart';
 import 'package:c2mealpha2/customWidgets/description/CustomDescriptionSliver.dart';
 import 'package:c2mealpha2/customWidgets/top/TopButtonDesign.dart';
 import 'package:c2mealpha2/customWidgets/top/TopView.dart';
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 void main() {
   List<Widget> list = [];
-
+  List<Widget> stories = [];
   list.add(GlasContainer(
       height: 100,
       width: 100,
@@ -30,24 +33,26 @@ void main() {
       width: 100,
       spread: 0,
       blur: 0,
-      child:  Align(
-          alignment: Alignment.center,child:Text(
-        "tiktok",
-        style: TextStyle(
-            color: Colors.white, fontSize: 13, fontWeight: FontWeight.bold),
-      )),
+      child: Align(
+          alignment: Alignment.center,
+          child: Text(
+            "tiktok",
+            style: TextStyle(
+                color: Colors.white, fontSize: 13, fontWeight: FontWeight.bold),
+          )),
       boxShadow: Colors.black87));
   list.add(GlasContainer(
       height: 100,
       width: 100,
       spread: 0,
       blur: 0,
-      child:  Align(
-          alignment: Alignment.center,child:Text(
-        "twitter",
-        style: TextStyle(
-            color: Colors.white, fontSize: 13, fontWeight: FontWeight.bold),
-      )),
+      child: Align(
+          alignment: Alignment.center,
+          child: Text(
+            "twitter",
+            style: TextStyle(
+                color: Colors.white, fontSize: 13, fontWeight: FontWeight.bold),
+          )),
       boxShadow: Colors.blue));
   list.add(GlasContainer(
       height: 100,
@@ -55,23 +60,25 @@ void main() {
       spread: 0,
       blur: 0,
       child: Align(
-          alignment: Alignment.center,child:Text(
-        "twitch",
-        style: TextStyle(
-            color: Colors.white, fontSize: 13, fontWeight: FontWeight.bold),
-      )),
+          alignment: Alignment.center,
+          child: Text(
+            "twitch",
+            style: TextStyle(
+                color: Colors.white, fontSize: 13, fontWeight: FontWeight.bold),
+          )),
       boxShadow: Colors.deepPurple));
   list.add(GlasContainer(
       height: 100,
       width: 100,
       spread: 0,
       blur: 0,
-      child:Align(
-          alignment: Alignment.center,child: Text(
-        "pinterest",
-        style: TextStyle(
-            color: Colors.white, fontSize: 13, fontWeight: FontWeight.bold),
-      )),
+      child: Align(
+          alignment: Alignment.center,
+          child: Text(
+            "pinterest",
+            style: TextStyle(
+                color: Colors.white, fontSize: 13, fontWeight: FontWeight.bold),
+          )),
       boxShadow: Colors.orange));
   list.add(GlasContainer(
       height: 100,
@@ -79,11 +86,14 @@ void main() {
       spread: 0,
       blur: 0,
       child: Align(
-          alignment: Alignment.center,child:Text(
-        "snapchat",
-        style: TextStyle(
-            color: Colors.black87, fontSize: 13, fontWeight: FontWeight.bold),
-      )),
+          alignment: Alignment.center,
+          child: Text(
+            "snapchat",
+            style: TextStyle(
+                color: Colors.black87,
+                fontSize: 13,
+                fontWeight: FontWeight.bold),
+          )),
       boxShadow: Colors.yellowAccent));
   list.add(GlasContainer(
       height: 100,
@@ -91,11 +101,12 @@ void main() {
       spread: 0,
       blur: 0,
       child: Align(
-          alignment: Alignment.center,child:Text(
-        "instagram",
-        style: TextStyle(
-            color: Colors.white, fontSize: 13, fontWeight: FontWeight.bold),
-      )),
+          alignment: Alignment.center,
+          child: Text(
+            "instagram",
+            style: TextStyle(
+                color: Colors.white, fontSize: 13, fontWeight: FontWeight.bold),
+          )),
       boxShadow: Colors.pink));
   list.add(GlasContainer(
       height: 100,
@@ -103,21 +114,41 @@ void main() {
       spread: 0,
       blur: 0,
       child: Align(
-          alignment: Alignment.center,child:Text(
-        "onlyfans",
-        style: TextStyle(
-            color: Colors.white, fontSize: 13, fontWeight: FontWeight.bold),
-      )),
+          alignment: Alignment.center,
+          child: Text(
+            "onlyfans",
+            style: TextStyle(
+                color: Colors.white, fontSize: 13, fontWeight: FontWeight.bold),
+          )),
       boxShadow: Colors.deepOrange));
+
+  stories.add(ListTile(
+    leading: GestureDetector(
+      behavior: HitTestBehavior.translucent,
+      onTap: () {},
+      child: Container(
+        width: 48,
+        height: 48,
+        padding: const EdgeInsets.symmetric(vertical: 4.0),
+        alignment: Alignment.center,
+        child: const CircleAvatar(),
+      ),
+    ),
+    title: const Text('title'),
+    dense: false,
+  ));
 
   runApp(MyApp(
     list: list,
+    stories: stories,
   ));
 }
 
 class MyApp extends StatelessWidget {
-  MyApp({Key? key, required this.list}) : super(key: key);
+  MyApp({Key? key, required this.list, required this.stories})
+      : super(key: key);
   final List<Widget> list;
+  final List<Widget> stories;
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
 
   // This widget is the root of your application.
@@ -141,7 +172,6 @@ class MyApp extends StatelessWidget {
                 scaffoldKey: _scaffoldKey,
               ),
               ContentImage(),
-              CustomDescriptionSliver(),
               SliverToBoxAdapter(
                 child: SizedBox(
                   height: 100,
@@ -158,16 +188,72 @@ class MyApp extends StatelessWidget {
                   ),
                 ),
               ),
+              CustomDescriptionSliver(),
               SliverToBoxAdapter(
-                child: Container(
-                  height: 200,
-                  color: Colors.transparent,
+                child: CarouselSlider(
+                  items: [
+                    StoryTile(
+                      messageCount: "199",
+                      followerCount: "1199",
+                      imageUrl:
+                          "https://images.unsplash.com/photo-1500622944204-b135684e99fd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1161&q=80%201161w,%20https://images.unsplash.com/photo-1500622944204-b135684e99fd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1461&q=80%201461w,%20https://images.unsplash.com/photo-1500622944204-b135684e99fd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1761&q=80%201761w,%20https://images.unsplash.com/photo-1500622944204-b135684e99fd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2061&q=80%202061w,%20https://images.unsplash.com/photo-1500622944204-b135684e99fd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2322&q=80%202322w,%20https://images.unsplash.com/photo-1500622944204-b135684e99fd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2361&q=80%202361w,%20https://images.unsplash.com/photo-1500622944204-b135684e99fd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2661&q=80%202661w,%20https://images.unsplash.com/photo-1500622944204-b135684e99fd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2922&q=80%202922w,%20https://images.unsplash.com/photo-1500622944204-b135684e99fd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2961&q=80%202961w,%20https://images.unsplash.com/photo-1500622944204-b135684e99fd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3169&q=80%203169w",
+                    ),
+                    StoryTile(
+                        imageUrl:
+                            "https://images.unsplash.com/photo-1586407014176-b592d6e2d16b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=327&q=80%20327w,%20https://images.unsplash.com/photo-1586407014176-b592d6e2d16b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=627&q=80%20627w,%20https://images.unsplash.com/photo-1586407014176-b592d6e2d16b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=654&q=80%20654w,%20https://images.unsplash.com/photo-1586407014176-b592d6e2d16b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=927&q=80%20927w,%20https://images.unsplash.com/photo-1586407014176-b592d6e2d16b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1227&q=80%201227w,%20https://images.unsplash.com/photo-1586407014176-b592d6e2d16b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1254&q=80%201254w,%20https://images.unsplash.com/photo-1586407014176-b592d6e2d16b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1527&q=80%201527w,%20https://images.unsplash.com/photo-1586407014176-b592d6e2d16b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1827&q=80%201827w,%20https://images.unsplash.com/photo-1586407014176-b592d6e2d16b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1854&q=80%201854w,%20https://images.unsplash.com/photo-1586407014176-b592d6e2d16b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2127&q=80%202127w,%20https://images.unsplash.com/photo-1586407014176-b592d6e2d16b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2160&q=80%202160w",
+                        followerCount: "12312",
+                        messageCount: "1221"),
+                    StoryTile(
+                        imageUrl:
+                            "https://images.unsplash.com/photo-1543877087-ebf71fde2be1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80",
+                        followerCount: "12323",
+                        messageCount: "122"),
+                    StoryTile(
+                      messageCount: "1",
+                      followerCount: "1231",
+                      imageUrl:
+                          "https://images.unsplash.com/photo-1441239372925-ac0b51c4c250?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=732&q=80",
+                    )
+                  ]
+                      .map((e) => Builder(
+                            builder: (context) {
+                              return e;
+                            },
+                          ))
+                      .toList(),
+                  options: CarouselOptions(height: 400),
                 ),
               ),
+              /**SliverToBoxAdapter(
+                  child: SizedBox(
+                  height: 200,
+                  child: ListView.builder(
+                  shrinkWrap: true,
+                  itemCount: 3,
+                  itemBuilder: (context, index) {
+                  return Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Container(
+                  color: Colors.white,
+                  child: Stack(
+                  children: [
+                  Positioned(child: Text("asda")),
+                  Image.network(
+                  "https://images.unsplash.com/photo-1604537529428-15bcbeecfe4d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1469&q=80"),
+                  ],
+                  ),
+                  ),
+                  );
+                  },
+                  scrollDirection: Axis.horizontal,
+                  ),
+                  ),
+                  ),
+               **/
               SliverToBoxAdapter(
                 child: Container(
                   height: 200,
-                  color: Colors.blue,
+                  color: Colors.white,
                 ),
               ),
               SliverToBoxAdapter(
