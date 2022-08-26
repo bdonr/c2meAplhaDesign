@@ -5,16 +5,17 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import 'CustomText.dart';
 import 'GlasContainer.dart';
+import 'InkWellWidget.dart';
 
 class StoryTile extends StatefulWidget {
   const StoryTile(
       {Key? key,
-      required this.imageUrl,
+      this.imageUrl = null,
       required this.followerCount,
       required this.messageCount,
       required this.title})
       : super(key: key);
-  final String imageUrl;
+  final String? imageUrl;
   final String followerCount;
   final String messageCount;
   final String title;
@@ -28,28 +29,14 @@ class _StoryTileState extends State<StoryTile> {
   Widget build(BuildContext context) {
     return Stack(
       children: <Widget>[
-        Container(
-          decoration: BoxDecoration(
-            image: DecorationImage(
-                image: NetworkImage(widget.imageUrl), fit: BoxFit.fill),
-            borderRadius: const BorderRadius.all(Radius.circular(10)),
-          ),
-          height: 400,
+        InkWellWidget(
           width: 300,
-        ),
-        Positioned.fill(
-          child: Material(
-            color: Colors.transparent,
-            child: InkWell(
-              onTap: () {},
-            ),
-          ),
-        ),
-        Positioned.fill(
+          height: 400,
+          imageUrl: widget.imageUrl,
           child: Column(
             children: [
               Expanded(
-                flex: 1,
+                flex: 2,
                 child: LikeMessageOverlayWithTitle(
                   title: widget.title,
                   messageCount: widget.messageCount,
