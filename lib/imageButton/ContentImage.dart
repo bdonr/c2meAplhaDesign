@@ -1,3 +1,4 @@
+import 'package:c2mealpha2/customWidgets/CustomText.dart';
 import 'package:c2mealpha2/customWidgets/GlasContainer.dart';
 import 'package:c2mealpha2/customWidgets/ShadowBox.dart';
 import 'package:c2mealpha2/imageButton/GlasButton.dart';
@@ -48,10 +49,46 @@ class _ContentImageState extends State<ContentImage> {
               height: 90,
               width: 300,
               boxShadow: Colors.transparent,
-              child: Stack(children: [
-                Positioned.fill(left:4,top:-60,child: Align(alignment: Alignment.centerLeft,child: DescriptionTextRow(description: 1000.toString(),text:"follower"))),
-                Positioned.fill(left:4,top:-30,child:  Align(alignment: Alignment.centerLeft,child:DescriptionTextRow(description:1000.toString(),text: "follows",))),
-                Positioned.fill(left:4,top:-0,child:  Align(alignment: Alignment.centerLeft,child:DescriptionTextRow(description:4.toString(),text: "stories",))),
+              child: Column(
+                children: [
+                Expanded(
+                  flex: 1,
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Container(
+                        margin:EdgeInsets.only(left: 10),
+                        child: Column(
+                          children: [
+                            CustomText(text: 100.toString(),size: 17,weight: FontWeight.bold),
+                            CustomText(text: "follower",size: 20,weight: FontWeight.bold),
+                          ],
+                        ),
+                      ),
+
+                      Container(
+                        margin: EdgeInsets.only(left: 10),
+                        child: Column(
+                          children: [
+                            CustomText(text: 4.toString(),size: 17,weight: FontWeight.bold),
+                            CustomText(text: "follows",size: 20,weight: FontWeight.bold),
+                          ],
+                        ),
+                      ),
+
+                      Container(
+                        margin: EdgeInsets.only(left: 10),
+                        child: Column(
+                          children: [
+                            CustomText(text: 10.toString()+"k",size: 17,weight: FontWeight.bold),
+                            CustomText(text: "stories",size: 20,weight: FontWeight.bold),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
               ],),
             ),
           )

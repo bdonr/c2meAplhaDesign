@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
 import 'CustomText.dart';
-
 
 class DescriptionTextRow extends StatelessWidget {
   const DescriptionTextRow(
@@ -11,13 +11,6 @@ class DescriptionTextRow extends StatelessWidget {
   final String text;
 
   Widget build(BuildContext context) {
-    return Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-
-        children:[
-
-      Flexible(flex:3,child: CustomText(text: description+":")),
-      Flexible(flex:7,child: CustomText(text: text)),
-    ]);
+    return CustomText(text: description + ":\t" + text,color: Colors.deepPurple,weight: FontWeight.bold,);
   }
 }

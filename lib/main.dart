@@ -185,102 +185,105 @@ class MyApp extends StatelessWidget {
             ],
           ),
           drawer: Drawer(
+            backgroundColor: Colors.transparent,
             // Add a ListView to the drawer. This ensures the user can scroll
             // through the options in the drawer if there isn't enough vertical
             // space to fit everything.
-            child: ListView(
-              // Important: Remove any padding from the ListView.
-              padding: EdgeInsets.zero,
-              children: [
-                DrawerHeader(
-                  decoration: BoxDecoration(
-                    color: Colors.deepPurple.shade50,
-                  ),
-                  child: Text('Drawer Header'),
-                ),
-                Row(
-                  children: [
-                    Expanded(child: Icon(Icons.add)),
-                    Expanded(
-                      child: ListTile(
-                        title: const Text('Public Mode'),
-                        onTap: () {
-                          _scaffoldKey.currentState?.closeDrawer();
-                        },
+            child: GlasContainer(
+              height: double.infinity,
+              width: 400,
+              blur: 0,
+              boxShadow: Colors.transparent,
+              glassColor: Colors.white,
+              opacity: 0.7,
+              child: ListView(
+                // Important: Remove any padding from the ListView.
+                padding: EdgeInsets.zero,
+                children: [
+                  Row(
+                    children: [
+                      Expanded(child: Icon(Icons.add)),
+                      Expanded(
+                        child: ListTile(
+                          title: const Text('Public Mode'),
+                          onTap: () {
+                            _scaffoldKey.currentState?.closeDrawer();
+                          },
+                        ),
                       ),
-                    ),
-                  ],
-                ),
-                ListTile(
-                  title: const Text('Private Mode'),
-                  onTap: () {
-                    _scaffoldKey.currentState?.closeDrawer();
-                  },
-                ),
-                ListTile(
-                  title: const Text('Influencer Mode'),
-                  onTap: () {
-                    _scaffoldKey.currentState?.closeDrawer();
-                  },
-                ),
-                Divider(
-                  thickness: 1,
-                ),
-                ListTile(
-                  title: const Text('Where Am I Privat'),
-                  onTap: () {
-                    _scaffoldKey.currentState?.closeDrawer();
-                  },
-                ),
-                Divider(
-                  thickness: 1,
-                ),
-                ListTile(
-                  title: const Text('Who I met today'),
-                  onTap: () {
-                    _scaffoldKey.currentState?.closeDrawer();
-                  },
-                ),
-                ListTile(
-                  title: const Text('Who liked me today'),
-                  onTap: () {
-                    _scaffoldKey.currentState?.closeDrawer();
-                  },
-                ),
-                ListTile(
-                  title: const Text('IgnoreList'),
-                  onTap: () {
-                    _scaffoldKey.currentState?.closeDrawer();
-                  },
-                ),
-                Divider(
-                  thickness: 1,
-                ),
-                ListTile(
-                  title: const Text('Edit my Socials'),
-                  onTap: () {
-                    _scaffoldKey.currentState?.closeDrawer();
-                  },
-                ),
-                ListTile(
-                  title: const Text('Edit my Main Image'),
-                  onTap: () {
-                    _scaffoldKey.currentState?.closeDrawer();
-                  },
-                ),
-                ListTile(
-                  title: const Text('Edit Info'),
-                  onTap: () {
-                    _scaffoldKey.currentState?.closeDrawer();
-                  },
-                ),
-                ListTile(
-                  title: const Text('Edit Info'),
-                  onTap: () {
-                    _scaffoldKey.currentState?.closeDrawer();
-                  },
-                ),
-              ],
+                    ],
+                  ),
+                  ListTile(
+                    title: const Text('Private Mode'),
+                    onTap: () {
+                      _scaffoldKey.currentState?.closeDrawer();
+                    },
+                  ),
+                  ListTile(
+                    title: const Text('Influencer Mode'),
+                    onTap: () {
+                      _scaffoldKey.currentState?.closeDrawer();
+                    },
+                  ),
+                  Divider(
+                    thickness: 1,
+                  ),
+                  ListTile(
+                    title: const Text('Where Am I Privat'),
+                    onTap: () {
+                      _scaffoldKey.currentState?.closeDrawer();
+                    },
+                  ),
+                  Divider(
+                    thickness: 1,
+                  ),
+                  ListTile(
+                    title: const Text('Who I met today'),
+                    onTap: () {
+                      _scaffoldKey.currentState?.closeDrawer();
+                    },
+                  ),
+                  ListTile(
+                    title: const Text('Who liked me today'),
+                    onTap: () {
+                      _scaffoldKey.currentState?.closeDrawer();
+                    },
+                  ),
+                  ListTile(
+                    title: const Text('IgnoreList'),
+                    onTap: () {
+                      _scaffoldKey.currentState?.closeDrawer();
+                    },
+                  ),
+                  Divider(
+                    thickness: 1,
+                  ),
+                  ListTile(
+                    title: const Text('Edit my Socials'),
+                    onTap: () {
+                      _scaffoldKey.currentState?.closeDrawer();
+                    },
+                  ),
+                  ListTile(
+                    title: const Text('Edit my Main Image'),
+                    onTap: () {
+                      _scaffoldKey.currentState?.closeDrawer();
+                    },
+                  ),
+                  ListTile(
+                    title: const Text('Edit Info'),
+                    onTap: () {
+                      _scaffoldKey.currentState?.closeDrawer();
+                    },
+                  ),
+                  ListTile(
+                    title: const Text('Edit Info'),
+                    onTap: () {
+                      _scaffoldKey.currentState?.closeDrawer();
+                    },
+                  ),
+                ],
+              ),
             ),
           ),
         ),
