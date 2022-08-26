@@ -20,10 +20,10 @@ class _CustomDescriptionSliverState extends State<CustomDescriptionSliver> {
         child: GlasContainer(
       height: 150,
       width: double.infinity,
-      boxShadow: Colors.deepPurple.withOpacity(0),
+      boxShadow: Colors.deepPurple.withOpacity(1),
       blur: 900,
-      spread: 1,
-      glassColor: Colors.deepPurple,
+      spread: 0,
+      glassColor: Colors.white,
       opacity: 0.2,
       child: Row(
         mainAxisSize: MainAxisSize.max,
